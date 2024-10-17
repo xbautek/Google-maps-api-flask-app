@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block title %}Weather{% endblock %} {% block
+content %}
+<h1 align="center">Weather</h1>
+
+{% if data %}
+<p>Location: {{ data.name }}</p>
+<p>Temperature: {{ (data.main.temp - 273.15) | round(2) }}°C</p>
+<p>Weather: {{ data.weather[0].description }}</p>
+<p>Humidity: {{ data.main.humidity }}%</p>
+<p>Wind Speed: {{ data.wind.speed }} m/s</p>
+{% else %}
+<p>No weather data available.</p>
+{% endif %} {% endblock %}
